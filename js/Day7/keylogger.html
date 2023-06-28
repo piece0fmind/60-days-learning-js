@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyLogger</title>
+</head>
+<body>
+    <input id = "textBox" type = "text">
+    
+    <div id="output"></div> 
+    <input id="reset" type="submit" value = "Reset">
+
+    <script>
+        const textBox = document.querySelector("#textBox");
+        const keyLog = document.querySelector("#output");
+        const resetButton = document.querySelector("#reset");
+        resetButton.addEventListener("click",reset);
+
+        textBox.addEventListener("keydown", (event)=>{
+            if(!keyLog.textContent.includes("You pressed: ")){
+                keyLog.textContent = `You pressed: ${event.key}`;
+            }
+            else{
+                keyLog.textContent += event.key;
+            }
+        });
+
+        function reset(){
+            keyLog.textContent = "";
+            textBox.value= "";
+        }
+
+
+    </script>
+</body>
+</html>

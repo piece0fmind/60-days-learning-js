@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div>
+            <label for = "fname">First Name:</label>
+            <input id = "fname" type = "text" />
+
+        </div>
+        <br>
+        <div>
+            <label for = "lname">Last Name:</label>
+            <input id = "lname" type = "text" />
+        </div>
+        <br>
+        <div>
+            <input id="submit" type = "submit" />
+        </div>
+    </form>
+    <p></p>
+    <!-- <div id="container">
+        <button>Click Me!</button>
+    </div>
+    <pre id = "output" ></pre> -->
+
+    <script>
+        const form = document.querySelector("form");
+        const fname = document.getElementById("fname");
+        const lname = document.getElementById("lname");
+        const para = document.querySelector("p");
+
+        form.addEventListener("submit", (e)=>{
+            if(fname.value ==="" || lname.value === ""){
+                e.preventDefault();
+                para.textContent = "Names can't be empty!";
+                para.style.color = "red";
+            }
+        });
+
+        // const output = document.querySelector("#output");
+        // function handleClick(e){
+        //     output.textContent += `You clicked on a ${e.currentTarget.tagName} element\n`;
+        // }
+
+        // const container = document.querySelector("#container");
+        // container.addEventListener("click",handleClick);
+
+    </script>
+</body>
+</html>
